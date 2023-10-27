@@ -28,11 +28,31 @@ steps:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'openshift'
     version: 'v4.13.15'
-    cmd: 'oc new-build --name dotnet-app-build dotnet:latest --binary --context-dir=app'
+    cmd: 'oc new-build --binary=true --name dotnet-app dotnet:latest --context-dir=app'
     ignoreFlag: true
 - task: oc-cmd@3
   inputs:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'openshift'
     version: 'v4.13.15'
-    cmd: 'oc start-build dotnet-app-build --from-dir . --follow'
+    cmd: 'ooc start-build dotnet-app --from-dir=app --follow'
+- task: oc-cmd@3
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'openshift'
+    version: 'v4.13.15'
+    cmd: 'oc new-app dotnet-app'
+    ignoreFlag: true
+- task: oc-cmd@3
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'openshift'
+    version: 'v4.13.15'
+    cmd: 'oc expose service/dotnet-app'
+    ignoreFlag: true
+- task: oc-cmd@3
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'openshift'
+    version: 'v4.13.15'
+    cmd: 'oc status'
