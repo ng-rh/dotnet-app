@@ -28,7 +28,7 @@ steps:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'openshift'
     version: 'v4.13.15'
-    cmd: 'oc new-build --name dotnet-app-build dotnet:latest --binary'
+    cmd: 'oc new-build --name dotnet-app-build dotnet:latest --binary -e DOTNET_STARTUP_PROJECT=app'
     ignoreFlag: true
 - task: oc-cmd@3
   inputs:
