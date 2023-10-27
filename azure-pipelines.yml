@@ -1,0 +1,19 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: Default
+
+steps:
+- task: oc-cmd@3
+  inputs:
+    connectionType: 'OpenShift Connection Service'
+    openshiftService: 'openshift'
+    version: 'v4.13.15'
+    cmd: 'oc create new-project app'
+    ignoreFlag: true
