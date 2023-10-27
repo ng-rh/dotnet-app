@@ -15,5 +15,5 @@ steps:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'openshift'
     version: 'v4.13.15'
-    cmd: 'oc create new-project app'
+    cmd: 'oc new-project app'
     ignoreFlag: true
