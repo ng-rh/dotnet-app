@@ -28,7 +28,7 @@ steps:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'openshift'
     version: 'v4.13.15'
-    cmd: 'oc new-build --name dotnet-app-build dotnet:latest~https://bpcl-devops@dev.azure.com/bpcl-devops/dotnet-app/_git/dotnet-app --force'
+    cmd: 'oc new-build --name dotnet-app-build dotnet:latest~https://bpcl-devops@dev.azure.com/bpcl-devops/dotnet-app/_git/dotnet-app'
 - task: oc-cmd@3
   inputs:
     connectionType: 'OpenShift Connection Service'
