@@ -22,7 +22,7 @@ steps:
     ignoreFlag: true
 - task: CmdLine@2
   inputs:
-    script: 'pwd'
+    script: 'pwd \n ls'
 - task: oc-cmd@3
   inputs:
     connectionType: 'OpenShift Connection Service'
