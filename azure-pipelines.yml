@@ -28,5 +28,5 @@ steps:
     connectionType: 'OpenShift Connection Service'
     openshiftService: 'openshift'
     version: 'v4.13.15'
-    cmd: 'oc new-app https://github.com/ng-rh/dotnet-app.git --context-dir=app'
+    cmd: 'oc new-app dotnet:7.0-ubi8~https://github.com/ng-rh/dotnet-app.git --context-dir=app'
     ignoreFlag: true
